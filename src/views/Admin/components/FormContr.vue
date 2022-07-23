@@ -2,16 +2,16 @@
   <div class="formcontr_container">
     <form>
       <label for="username">用户名:</label>
-      <input type="text" id="username">
+      <input type="text" id="username" v-model="username">
       <label for="password">密&nbsp;&nbsp;&nbsp;码:</label>
-      <input type="text" id="password">
+      <input type="text" id="password" v-model="password">
       <label for="gender">性别</label>
       <div>
         <b-form-select v-model="selGender" :options="options" id="gender"></b-form-select>
         selected: {{ selGender }}
       </div>
       <label for="age">年&nbsp;&nbsp;&nbsp;龄:</label>
-      <input type="number" id="age">
+      <input type="number" id="age" v-model="age">
       <b-button class="sub_info" variant="primary">添加/修改</b-button>
     </form>
   </div>
