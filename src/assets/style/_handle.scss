@@ -1,0 +1,34 @@
+@import './_themes.scss';
+
+@mixin themeify {
+  @each $theme-name, $theme-map in $themes {
+    $theme-map: $theme-map !global;
+    // 判断html的data-theme的属性值  #{}是sass的插值表达式
+    // @content 混合器插槽
+    html[data-theme="#{$theme-name}"] & {
+      @content;
+    }
+  }
+}
+
+@function themed($key) {
+  @return map-get($theme-map, $key);
+}
+
+@mixin bk_color($color) {
+  @include themeify {
+    background-color: themed($color) !important;
+  }
+}
+
+@mixin f_color($color) {
+  @include themeify {
+    color: themed($color) !important;
+  }
+}
+
+@mixin in_color($color) {
+  @include themeify {
+    background-color: themed($color) !important;
+  }
+}
